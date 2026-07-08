@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="container">
+<h1>Hero Cycle Pricing Engine</h1>
+<a href="/add" class="btn">
+Add Part
+</a>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Part name</th>
+<th>Price</th>
+<th>Action</th>
+</thead>
+</tr>
+<tbody>
+<tr  th:each="part:${parts}">
+<td th:text=${part.id}></td>
+<td th:text=${part.name}></td>
+<td th:text=${part.price}></td>
+
+<td >
+<a th:href=" 'edit?id='+${part.id}">edit</a>
+
+<a th:href="'delete?id='+${part.id}">delete</a>
+</td>
+</tbody>
+</table>
+
+</div>
+</body>
+</html>
