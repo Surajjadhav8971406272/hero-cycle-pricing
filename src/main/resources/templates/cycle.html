@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Cycles</title>
+
+<link rel="stylesheet" th:href="@{/css/style.css}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Manage Cycles</h1>
+
+<a th:href="@{/cycles/add}" class="btn">
+Add Cycle
+</a>
+
+<table>
+
+<tr>
+
+<th>ID</th>
+
+<th>Cycle Name</th>
+
+<th>Action</th>
+
+</tr>
+
+<tr th:each="cycle : ${cycles}">
+
+<td th:text="${cycle.id}"></td>
+
+<td th:text="${cycle.name}"></td>
+
+<td>
+
+
+<a th:href="'cycles/edit?id='+${cycle.id}" class="edit-btn">edit</a>
+<a th:href=" 'cycles/delete?id='+${cycle.id}" class="delete-btn"> Delete </a>
+
+</td>
+
+</tr>
+
+</table>
+
+</div>
+
+</body>
+
+</html>

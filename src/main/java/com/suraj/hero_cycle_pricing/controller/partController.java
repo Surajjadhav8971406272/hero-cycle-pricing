@@ -41,17 +41,17 @@ public class partController {
 	@GetMapping("/delete")
 	public String deletePart(@RequestParam int id) {
 		partService.deletePart(id);
-		return "redirect:/parts";
+		return "redirect:/";
 	}
 	@GetMapping("/edit")
 	public String editPart(Model model,@RequestParam int id) {
 	model.addAttribute("part",partService.getById(id));
 		return "edit-part";
 	}
-	@PostMapping("/update/{id}")
+	@PostMapping("/update")
 	public String updatePart(@ModelAttribute Part part,int id) {
 		partService.updatePart(part, id);
-		return "redirect/:parts";
+		return "redirect:/";
 	}
 
 }
