@@ -2,44 +2,41 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
+    <meta charset="UTF-8">
+    <title>Add Cycle</title>
 
-<meta charset="UTF-8">
-
-<title>Add Cycle</title>
-
-<link rel="stylesheet" th:href="@{/css/style.css}">
-
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 
 <body>
 
-<div class="form-container">
+<div class="container">
 
-<h2>Add Cycle</h2>
+    <h1>Add Cycle</h1>
 
-<form action="/cycles/add" method="post">
+    <form action="/cycles/add" method="post">
 
-<div class="form-group">
+        <div class="form-group">
 
-<label>Cycle Name</label>
+            <label>Cycle Name</label>
 
-<input type="text" name="name" required>
+            <input
+                    type="text"
+                    name="name"
+                    placeholder="Enter Cycle Name"
+                    required>
 
-</div>
+        </div>
 
-<button class="btn">
+        <button type="submit" class="btn">
+            Save
+        </button>
 
-Save
+        <a th:href="@{/cycles}" class="btn">
+            Back
+        </a>
 
-</button>
-
-<a th:href="@{/cycles}" class="btn">
-
-Back
-
-</a>
-
-</form>
+    </form>
 
 </div>
 

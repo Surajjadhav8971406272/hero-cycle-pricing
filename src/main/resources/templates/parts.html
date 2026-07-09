@@ -1,39 +1,70 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
+
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Manage Parts</title>
+
 <link rel="stylesheet" th:href="@{/css/style.css}">
+
 </head>
+
 <body>
+
 <div class="container">
-<h1>Hero Cycle Pricing Engine</h1>
-<a href="/add" class="btn">
-Add Part
-</a>
-<table>
-<thead>
-<tr>
-<th>ID</th>
-<th>Part name</th>
-<th>Price</th>
-<th>Action</th>
-</thead>
-</tr>
-<tbody>
-<tr  th:each="part:${parts}">
-<td th:text=${part.id}></td>
-<td th:text=${part.name}></td>
-<td th:text=${part.price}></td>
 
-<td >
-<a th:href=" 'edit?id='+${part.id}">edit</a>
+    <h1>Manage Parts</h1>
 
-<a th:href="'delete?id='+${part.id}">delete</a>
-</td>
-</tbody>
-</table>
+    <br>
 
+    <a th:href="@{parts/add}" class="btn">
+        Add Part
+    </a>
+
+    &nbsp;
+
+    <a th:href="@{/}" class="btn">
+        Home
+    </a>
+
+    <br><br>
+
+    <table>
+        <thead>
+            <tr>
+               <th>ID</th>
+                <th>Part Name</th>
+                <th>Price</th>
+                <th>Action</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr th:each="part : ${parts}">
+
+                <td th:text="${part.id}"></td>
+
+                <td th:text="${part.name}"></td>
+
+                <td th:text="${part.price}"></td>
+
+                <td>
+
+                    <div class="action-buttons">
+
+                        <a th:href="'/parts/edit?id='+${part.id}" class="edit-btn">Edit </a>
+
+                        <a th:href="'/parts/delete?id='+${part.id}" class="delete-btn">  Delete   </a>
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>
+
 </body>
+
 </html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Hero Cycle Pricing Engine</title>
+
+<link rel="stylesheet" th:href="@{/css/style.css}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🚲 Hero Cycle Pricing Engine</h1>
+
+    <p style="text-align:center;font-size:18px;margin-bottom:30px;">
+        Welcome to the Hero Cycle Pricing Engine.
+        <br><br>
+        Manage cycle parts, manage cycle models,
+        and calculate the total price of a cycle.
+    </p>
+
+    <div style="text-align:center;">
+
+        <a th:href="@{/parts}" class="btn">
+            📦 Manage Parts
+        </a>
+
+        <br>
+
+        <a th:href="@{/cycles}" class="btn">
+            🚲 Manage Cycles
+        </a>
+
+        <br>
+
+        <a th:href="@{/pricing}" class="btn">
+            💰 Calculate Price
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

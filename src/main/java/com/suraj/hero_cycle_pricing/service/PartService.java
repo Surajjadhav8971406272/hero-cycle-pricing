@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.suraj.hero_cycle_pricing.Exception.ResourceNotFoundException;
 import com.suraj.hero_cycle_pricing.entity.Part;
 
 import com.suraj.hero_cycle_pricing.repository.PartRepository;
@@ -28,11 +29,11 @@ public class PartService {
 	}
 	
 	public Part getById(int id) {
-		return partRepository.findById(id).orElseThrow();
+		return partRepository.findById(id).orElseThrow(() ->new ResourceNotFoundException("Part not found with id : " + id));
 	}
 	
 	public Part updatePart(Part part, int id) {
-		Part p=partRepository.findById(id).orElseThrow();
+		Part p=partRepository.findById(id).orElseThrow(() ->new ResourceNotFoundException("Part not found with id : " + id));
 		
 		if(p==null) {
 			return null;

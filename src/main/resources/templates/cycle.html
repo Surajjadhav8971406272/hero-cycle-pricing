@@ -5,7 +5,7 @@
 
 <meta charset="UTF-8">
 
-<title>Cycles</title>
+<title>Manage Cycles</title>
 
 <link rel="stylesheet" th:href="@{/css/style.css}">
 
@@ -17,11 +17,27 @@
 
 <h1>Manage Cycles</h1>
 
-<a th:href="@{/cycles/add}" class="btn">
+<a
+th:href="@{/cycles/add}"
+class="btn">
+
 Add Cycle
+
 </a>
 
+<a
+th:href="@{/}"
+class="btn">
+
+Home
+
+</a>
+
+<br><br>
+
 <table>
+
+<thead>
 
 <tr>
 
@@ -33,7 +49,11 @@ Add Cycle
 
 </tr>
 
-<tr th:each="cycle : ${cycles}">
+</thead>
+
+<tbody>
+
+<tr th:each="cycle:${cycles}">
 
 <td th:text="${cycle.id}"></td>
 
@@ -41,13 +61,31 @@ Add Cycle
 
 <td>
 
+<div class="action-buttons">
 
-<a th:href="'cycles/edit?id='+${cycle.id}" class="edit-btn">edit</a>
-<a th:href=" 'cycles/delete?id='+${cycle.id}" class="delete-btn"> Delete </a>
+<a
+th:href="'/cycles/edit?id='+${cycle.id}"
+class="edit-btn">
+
+Edit
+
+</a>
+
+<a
+th:href="'/cycles/delete?id='+${cycle.id}"
+class="delete-btn">
+
+Delete
+
+</a>
+
+</div>
 
 </td>
 
 </tr>
+
+</tbody>
 
 </table>
 

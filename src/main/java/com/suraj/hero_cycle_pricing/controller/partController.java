@@ -17,7 +17,7 @@ import com.suraj.hero_cycle_pricing.service.PartService;
 import lombok.RequiredArgsConstructor;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/parts")
 @RequiredArgsConstructor
 public class partController {
 	
@@ -36,12 +36,12 @@ public class partController {
 	@PostMapping("/add")
 	public String addPart(@ModelAttribute Part part) {
 		partService.addPart(part);
-		return "redirect:/";
+		return "redirect:/parts";
 	}
 	@GetMapping("/delete")
 	public String deletePart(@RequestParam int id) {
 		partService.deletePart(id);
-		return "redirect:/";
+		return "redirect:/parts";
 	}
 	@GetMapping("/edit")
 	public String editPart(Model model,@RequestParam int id) {
@@ -51,7 +51,7 @@ public class partController {
 	@PostMapping("/update")
 	public String updatePart(@ModelAttribute Part part,int id) {
 		partService.updatePart(part, id);
-		return "redirect:/";
+		return "redirect:/parts";
 	}
 
 }

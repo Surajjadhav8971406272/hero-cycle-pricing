@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Pricing</title>
+
+<link rel="stylesheet" th:href="@{/css/style.css}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Calculate Price</h1>
+
+<form action="/calculate" method="post">
+
+<label>
+
+Select Cycle
+
+</label>
+
+<select name="cycleId">
+
+<option
+th:each="cycle:${cycles}"
+th:value="${cycle.id}"
+th:text="${cycle.name}">
+</option>
+
+</select>
+
+<br><br>
+
+<table>
+
+<tr>
+
+<th>Part</th>
+
+<th>Price</th>
+
+<th>Quantity</th>
+
+</tr>
+
+<tr th:each="part:${parts}">
+
+<td th:text="${part.name}"></td>
+
+<td th:text="${part.price}"></td>
+
+<td>
+
+<input
+type="number"
+th:name="'qty_'+${part.id}"
+value="0"
+min="0">
+
+</td>
+
+</tr>
+
+</table>
+
+<br>
+
+<button class="btn">
+
+Calculate
+
+</button>
+
+</form>
+
+</div>
+
+</body>
+
+</html>

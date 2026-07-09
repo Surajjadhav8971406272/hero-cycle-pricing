@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Price Result</title>
+
+<link rel="stylesheet" th:href="@{/css/style.css}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Price Summary</h1>
+
+<h2>
+
+Cycle :
+
+<span th:text="${cycleName}"></span>
+
+</h2>
+
+<table>
+
+<tr>
+
+<th>Part</th>
+
+<th>Calculation</th>
+
+</tr>
+
+<tr th:each="item:${items}">
+
+<td th:text="${item.partName}"></td>
+
+<td>
+
+₹<span th:text="${item.price}"></span>
+
+×
+
+<span th:text="${item.quantity}"></span>
+
+=
+
+₹<span th:text="${item.total}"></span>
+
+</td>
+
+</tr>
+
+</table>
+
+<br>
+
+<h2>
+
+Grand Total :
+
+₹<span th:text="${grandTotal}"></span>
+
+</h2>
+
+<a
+th:href="@{/pricing}"
+class="btn">
+
+Back
+
+</a>
+
+</div>
+
+</body>
+
+</html>

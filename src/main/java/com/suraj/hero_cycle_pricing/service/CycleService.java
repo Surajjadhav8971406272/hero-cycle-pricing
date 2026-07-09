@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.suraj.hero_cycle_pricing.Exception.ResourceNotFoundException;
 import com.suraj.hero_cycle_pricing.entity.Cycle;
 import com.suraj.hero_cycle_pricing.repository.CycleRepocitory;
 
@@ -24,11 +25,11 @@ public class CycleService {
 		return cyclerepository.findAll();
 	}
 	public Cycle getByCycleId(int id) {
-		return cyclerepository.findById(id).orElseThrow();
+		return cyclerepository.findById(id).orElseThrow(() ->new ResourceNotFoundException("Part not found with id : " + id));
 	}
 	
 	public void updateCycle(Cycle cycle, int id) {
-		Cycle c=cyclerepository.findById(id).orElseThrow();
+		Cycle c=cyclerepository.findById(id).orElseThrow(() ->new ResourceNotFoundException("Part not found with id : " + id));
 		
 		
 		c.setName(cycle.getName());
